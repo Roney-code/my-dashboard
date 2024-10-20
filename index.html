@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS Admin Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Admin Dashboard</h1>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active">Dashboard</a>
+                    <a href="#" class="list-group-item list-group-item-action">Products</a>
+                    <a href="#" class="list-group-item list-group-item-action">Sales</a>
+                    <a href="#" class="list-group-item list-group-item-action">Users</a>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <!-- Dashboard Content -->
+                <div class="card">
+                    <div class="card-header">Sales Overview</div>
+                    <div class="card-body">
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('salesChart').getContext('2d');
+        var salesChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Product 1', 'Product 2', 'Product 3'],
+                datasets: [{
+                    label: 'Total Sales',
+                    data: [12, 19, 3],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
